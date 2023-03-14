@@ -70,7 +70,8 @@ Let's move to a code exercise to work with all these methods on iOS and Android.
     finally:
         driver.quit()
 
-... img echo box
+
+<img width="1000" src="https://user-images.githubusercontent.com/70295997/224894569-bd6af5b9-edcc-4b0e-aac0-422f2ed5f550.png">
 
 I'd like to actually go to a screen called the 'Echo Box'. Let me show you what happens with this view. Here's my simulator. I can open The App, and I'm going to choose the Echo Box view. This view is very simple. It just has a text field that I can type into. I'll type something and hit Save. And now the view just echoes back to me what I wrote. I can even go back to the home screen, and then come back to this view, and it will remember what I wrote before. OK, back to our code. What I want to to specifically is test this functionality. We can think of it as consisting of several steps, which I'll write out as TODO comments to keep us on task.
 
