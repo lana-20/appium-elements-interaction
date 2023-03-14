@@ -17,7 +17,24 @@ Before we move on to a coding exercise, let's take this opportunity to look at a
 2. Element objects also have a property called rect, which returns the size and position of the element. This is often quite useful in situations where you need to perform some kind of low-level touch action on an element, and therefore need to know its exact midpoint relative to the screen coordinates, or something like that. When you retrieve this property, you get back a dictionary with width, height, x, and y keys.
 3. A final method we'll consider is named is_displayed. When you call this method, you get back a boolean True or False indicating whether the element you've found is actually displayed on the screen. This can be useful since sometimes you might find elements which are not actually visible, and it can be a good idea to check that they are visible before interacting with them
 
-Let's move to a code exercise to work with all these methods on iOS and Android. Here I am in my editor. I'm going to create a new file [<code>elements_ios.py</code>]().
+Let's move to a code exercise to work with all these methods on iOS and Android. Here I am in my editor. I'm going to create a new file [<code>elements_ios.py</code>](https://github.com/lana-20/appium-elements-interaction/blob/main/elements_ios.py).
+
+...
+
+    # TODO Wait for 'echo box' element and click to go to next screen
+    # TODO Wait for input field element and type 'Hello' into it
+    # TODO Click the save button
+    # TODO Assert that the text I typed has been echoed back
+    # TODO Go back to the main screen
+    # TODO Go back to the echo box screen
+    # TODO Assert that the text I typed is still saved and displayed
+
+
+...
+
+
+
+
 
 
 
