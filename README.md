@@ -17,7 +17,44 @@ Before we move on to a coding exercise, let's take this opportunity to look at a
 2. Element objects also have a property called rect, which returns the size and position of the element. This is often quite useful in situations where you need to perform some kind of low-level touch action on an element, and therefore need to know its exact midpoint relative to the screen coordinates, or something like that. When you retrieve this property, you get back a dictionary with width, height, x, and y keys.
 3. A final method we'll consider is named is_displayed. When you call this method, you get back a boolean True or False indicating whether the element you've found is actually displayed on the screen. This can be useful since sometimes you might find elements which are not actually visible, and it can be a good idea to check that they are visible before interacting with them
 
-Let's move to a code exercise to work with all these methods on iOS and Android. Here I am in my editor. I'm going to create a new file [<code>elements_ios.py</code>](https://github.com/lana-20/appium-elements-interaction/blob/main/elements_ios.py).
+Let's move to a code exercise to work with all these methods on iOS and Android. Here I am in my editor. I'm going to create a new file [<code>elements_ios.py</code>](https://github.com/lana-20/appium-elements-interaction/blob/main/elements_ios.py):
+
+    from os import path
+    from appium import webdriver
+    from appium.webdriver.common.mobileby import MobileBy
+    from selenium.webdriver.support.wait import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+
+    CUR_DIR = path.dirname(path.abspath(__file__))
+    APP = path.join(CUR_DIR, 'TheApp.app.zip')
+    APPIUM = 'http://localhost:4723'
+    CAPS = {
+        'platformName': 'iOS',
+        'platformVersion': '16.2',
+        'deviceName': 'iPhone 14 Pro',
+        'automationName': 'XCUITest',
+        'app': APP,
+    }
+
+    driver = webdriver.Remote(APPIUM, CAPS)
+    try:
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.presence_of_element_located(
+            (MobileBy.ACCESSIBILITY_ID, 'Echo Box'))).click()
+        wait.until(EC.presence_of_element_located(
+            (MobileBy.ACCESSIBILITY_ID, 'messageInput'))).send_keys('Hello')
+        driver.find_element(MobileBy.ACCESSIBILITY_ID, 'messageSaveBtn').click()
+        saved = driver.find_element(MobileBy.ACCESSIBILITY_ID, 'savedMessage').text
+        assert saved == 'Hello'
+        driver.back()
+
+        wait.until(EC.presence_of_element_located(
+            (MobileBy.ACCESSIBILITY_ID, 'Echo Box'))).click()
+        saved = driver.find_element(MobileBy.ACCESSIBILITY_ID, 'savedMessage').text
+        assert saved == 'Hello'
+    finally:
+        driver.quit()
+
 
 ...
 
