@@ -18,6 +18,13 @@ The main point here is that element interaction works the same with Appium as wi
 3. Third, we can reverse the send keys command with an <code>element.clear()</code>.
 4. And finally, we can get the text inside an element using the <code>element.text</code> property. The behavior here differs from Selenium slightly. With Selenium, if you call <code>.text</code> on an element which has other elements inside of it, you'll get the text of all the descendant elements, concatenated into one string. Appium, on the other hand, will only give you the text of the single element you're working with. In practice this difference doesn't tend to matter much, but I mention it so that you can be aware.
 
+| Other Element Interaction |  |
+| ---- | ---- |
+| <code>element.get_attribute('attr')</code> | Get the value of the element's <code>attr</code> attribute. |
+| <code>element.rect</code> | Get the size and position of the element as a Python dictionary:  <code>{'x': 100, 'y': 50, 'height': 25, 'width': 40}</code> |
+| <code>element.is_displayed()</code> | Check whether the element is actually displayed. |
+
+
 Before we move on to a coding exercise, let's take this opportunity to look at a few other types of element interactions. These methods all work with Selenium too! I consider them a bit more advanced since we don't need to use them as frequently, but they're all useful in one way or another.
 
 1. Element objects have a <code>get_attribute</code> method which takes an attribute name as a string parameter. When we look at the app page source or the source in Appium Inspector, we can see that elements have all kinds of attributes like name, label, and so on. You can get the values of these attributes in your client scripts using this get_attribute method.
