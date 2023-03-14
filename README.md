@@ -2,7 +2,14 @@
 
 *Mobile elements allow all the same types of interaction as web elements: click, send keys, and so on.*
 
-let's talk about what we can do with the elements we found.
+Let's talk about what we can do with the elements we found.
+
+| Mobile Element Interaction |  |
+| ---- | ---- |
+| <code>element.click()</code> | Click or tap the element. |
+| <code>element.send_keys('text')</code> | Send 'text' as a series of keystrokes into an input field element. |
+| <code>element.clear()</code> | Remove any text or value from an input field element. |
+| <code>text = element.text</code> | Retrieve the text displayed within the element, and assign it to Python variable <code>text</code>. |
 
 The main point here is that element interaction works the same with Appium as with Selenium. So we have the same basic 4 commands that give us most of what we need:
 
